@@ -61,3 +61,46 @@ QSqlQueryModel * enfant::afficher()
     model->setHeaderData(1, Qt::Horizontal, tr("HAUTEUR"));*/
     return model;
 }
+bool enfant::modifier(int rech)
+{
+    QString res=QString::number(poids);
+    QString res1=QString::number(hauteur);
+    QSqlQuery q;
+
+    q.prepare("update enfants set nom = :nom, prenom = :prenom, sexe = :sexe, datenais = :datenais, poids = :poids, hauteur = :hauteur where id = :id");
+    q.bindValue(":id",rech);
+    q.bindValue(":nom",nom);
+    q.bindValue(":prenom",prenom);
+    q.bindValue(":sexe",sexe);
+    q.bindValue(":datenais",datenais);
+    q.bindValue(":poids",res);
+    q.bindValue(":hauteur",res1);
+
+    return q.exec();
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

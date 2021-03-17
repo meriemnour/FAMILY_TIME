@@ -23,9 +23,14 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_5_clicked();
+
 private:
     Ui::Dialog_enfant *ui;
     enfant tmpenf;
+    int id;
 };
 
 #endif // DIALOG_ENFANT_H

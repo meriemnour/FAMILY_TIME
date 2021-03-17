@@ -1,15 +1,15 @@
 #include "dialog_enfant.h"
 #include "ui_dialog_enfant.h"
 #include <QDebug>
-
+#include <QIntValidator>
 Dialog_enfant::Dialog_enfant(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dialog_enfant)
 {
     ui->setupUi(this);
      ui->tableView->setModel(tmpenf.afficher());
-     /*QIntValidator *roll = new QIntValidator(100000,999999);
-     ui->lineEdit_3>setValidator(roll);*/
+     QIntValidator *roll = new QIntValidator(100000,999999);
+     ui->lineEdit_3->setValidator(roll);
 
 }
 
@@ -72,10 +72,53 @@ void Dialog_enfant::on_pushButton_2_clicked()
                                     "Click Cancel to exit."), QMessageBox::Cancel);}
     else QMessageBox::critical(nullptr, QObject::tr("enfant inexistant"),
                                QObject::tr("failed.\n"
-                                           "Click Cancel to exit."), QMessageBox::Cancel);
+                                           "Click Cancel to exit."), QMessageBox::Cancel);}
+    void Dialog_enfant::on_pushButton_3_clicked()
+    {
+
+
+    ui->tableView->setModel(tmpenf.afficher());
 }
 
-void Dialog_enfant::on_pushButton_3_clicked()
+void Dialog_enfant::on_pushButton_4_clicked()
 {
-    qDebug()<<tmpenf.rechercher(6);
+    id=ui->lineEdit_7->text().toInt();
+    if(tmpenf.rechercher(id))
+    {   ui->groupBox->setEnabled(true);}
+        else
+        {QMessageBox::critical(nullptr, QObject::tr("identifiant introuvable"),
+                                  QObject::tr("erreur.\n"
+                                              "Click Cancel to exit."), QMessageBox::Cancel);
+        }
 }
+
+void Dialog_enfant::on_pushButton_5_clicked()
+{
+    QString nom=ui->lineEdit_8->text();
+    QString prenom=ui->lineEdit_9->text();
+    QString datenais=ui->dateEdit_2->text();
+    QString sexe=ui->comboBox_2->currentText();
+    float poids=ui->lineEdit_11->text().toFloat();
+    float hauteur=ui->lineEdit_10->text().toFloat();
+    enfant e(id,nom,prenom,sexe,datenais,poids,hauteur);
+    if(tmpenf.rechercher(id)){
+    bool test=e.modifier(id);
+
+        if(test)
+        { ui->tableView->setModel(tmpenf.afficher());
+            ui->groupBox->setDisabled(true);
+            QMessageBox::information(nullptr, QObject::tr("enfant modifié"),
+                        QObject::tr("successful.\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+
+    }
+        else
+            QMessageBox::critical(nullptr, QObject::tr("enfant non modifié"),
+                        QObject::tr("failed.\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);}
+    else  {QMessageBox::critical(nullptr, QObject::tr("identifiant introuvable"),
+                                 QObject::tr("erreur.\n"
+                                             "Click Cancel to exit."), QMessageBox::Cancel);
+       }
+    }
+

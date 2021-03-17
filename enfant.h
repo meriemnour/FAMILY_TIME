@@ -13,6 +13,7 @@ public:
     bool supprimer(int);
     QSqlQueryModel * afficher();
     bool rechercher(int);
+    bool modifier(int);
 private:
     int id;
     QString nom;

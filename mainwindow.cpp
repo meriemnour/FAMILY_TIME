@@ -9,6 +9,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
 
     ui->setupUi(this);
+    QPixmap pix("C:/Users/asus/Desktop/rsz_7-tips-for-kids-safety-online-1200x628-1.png");
+    ui->label->setPixmap(pix);
 
 }
 
