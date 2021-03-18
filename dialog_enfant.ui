@@ -489,6 +489,21 @@
     </widget>
    </widget>
   </widget>
+  <widget class="QLabel" name="label_15">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>650</width>
+     <height>500</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label_15</zorder>
+  <zorder>tabWidget</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -123,3 +123,8 @@ void Dialog_enfant::on_pushButton_5_clicked()
 
 
 
+
+void Dialog_enfant::on_label_15_linkActivated(const QString &link)
+{
+
+}
