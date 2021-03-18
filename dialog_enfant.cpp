@@ -75,8 +75,6 @@ void Dialog_enfant::on_pushButton_2_clicked()
                                            "Click Cancel to exit."), QMessageBox::Cancel);}
     void Dialog_enfant::on_pushButton_3_clicked()
     {
-
-
     ui->tableView->setModel(tmpenf.afficher());
 }
 
@@ -122,3 +120,10 @@ void Dialog_enfant::on_pushButton_5_clicked()
        }
     }
 
+
+
+
+/*void Dialog_enfant::on_label_15_linkActivated(const QString &link)
+{
+
+}*/

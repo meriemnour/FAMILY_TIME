@@ -27,6 +27,8 @@ private slots:
 
     void on_pushButton_5_clicked();
 
+    void on_label_15_linkActivated(const QString &link);
+
 private:
     Ui::Dialog_enfant *ui;
     enfant tmpenf;

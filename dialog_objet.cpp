@@ -7,6 +7,8 @@ Dialog_objet::Dialog_objet(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->tableView->setModel(tmpo.afficher());
+    QPixmap pix("C:/Users/asus/Desktop/rsz_7-tips-for-kids-safety-online-1200x628-1.png");
+    ui->label->setPixmap(pix);
 
 }
 
@@ -55,6 +57,8 @@ void Dialog_objet::on_pushButton_2_clicked()
                     QObject::tr("failed.\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);
 }
+
+
 
 
 
