@@ -7,6 +7,7 @@ Dialog_objet::Dialog_objet(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->tableView->setModel(tmpo.afficher());
+
 }
 
 Dialog_objet::~Dialog_objet()
@@ -55,7 +56,4 @@ void Dialog_objet::on_pushButton_2_clicked()
                                 "Click Cancel to exit."), QMessageBox::Cancel);
 }
 
-void Dialog_objet::on_pushButton_3_clicked()
-{
 
-}
