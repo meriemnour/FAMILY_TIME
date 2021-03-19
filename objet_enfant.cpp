@@ -16,6 +16,17 @@ objet_enfant::objet_enfant(int iden,QString name,int nb,QString types,QString pr
 
 }
 
+bool objet_enfant::rechercher(int rech)
+{
+    QSqlQuery q;
+    QString res=QString::number(rech);
+    q.prepare("select id from objets where id=:id");
+    q.bindValue(":id",res);
+    q.exec();
+    return q.next();
+
+}
+
 
 bool objet_enfant::ajouter()
 {

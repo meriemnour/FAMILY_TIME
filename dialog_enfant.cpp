@@ -28,7 +28,82 @@ void Dialog_enfant::on_pushButton_clicked()
     QString sexe=ui->comboBox->currentText();
     float poids=ui->lineEdit_4->text().toFloat();
     float hauteur=ui->lineEdit_5->text().toFloat();
-    enfant e(id,nom,prenom,datenais,sexe,poids,hauteur);
+    //enfant e(id,nom,prenom,datenais,sexe,poids,hauteur);
+    /*if(!tmpenf.rechercher(id))
+    {
+   bool test= e.ajouter();
+
+       if(test)
+       { ui->tableView->setModel(tmpenf.afficher());
+           QMessageBox::information(nullptr, QObject::tr("enfant ajouté"),
+                       QObject::tr("successful.\n"
+                                   "Click Cancel to exit."), QMessageBox::Cancel);
+
+   }
+       else
+           QMessageBox::critical(nullptr, QObject::tr("enfant non ajouté"),
+                       QObject::tr("failed.\n"
+                                   "Click Cancel to exit."), QMessageBox::Cancel);
+}
+    else
+
+            QMessageBox::critical(nullptr, QObject::tr("enfant existant"),
+                        QObject::tr("failed.\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);*/
+
+
+
+          if (id < 0 )
+               {
+                   QMessageBox::critical(nullptr, QObject::tr("problem id"),
+                               QObject::tr("verifier id\n"
+                                           "Click Cancel to exit."), QMessageBox::Cancel);
+
+               }
+
+          else if (poids < 0 )
+               {
+                   QMessageBox::critical(nullptr, QObject::tr("problem POID"),
+                               QObject::tr("verifier POID\n"
+                                           "Click Cancel to exit."), QMessageBox::Cancel);
+
+               }
+          else if (hauteur < 0 )
+               {
+                   QMessageBox::critical(nullptr, QObject::tr("problem HAUTEUR"),
+                               QObject::tr("verifier HAUTEUR\n"
+                                           "Click Cancel to exit."), QMessageBox::Cancel);
+
+               }
+
+          else if (nom==""  )
+               {
+                   QMessageBox::critical(nullptr, QObject::tr("problem nom"),
+                               QObject::tr("verifier nom\n"
+                                           "Click Cancel to exit."), QMessageBox::Cancel);
+
+               }
+          else if (prenom==""  )
+               {
+                   QMessageBox::critical(nullptr, QObject::tr("problem prenom"),
+                               QObject::tr("verifier prenom\n"
+                                           "Click Cancel to exit."), QMessageBox::Cancel);
+
+               }
+          else if (datenais==""  )
+               {
+                   QMessageBox::critical(nullptr, QObject::tr("problem date_naissence"),
+                               QObject::tr("verifier date_naissence\n"
+                                           "Click Cancel to exit."), QMessageBox::Cancel);
+
+               }
+
+
+          else
+          {
+              enfant e(id,nom,prenom,datenais,sexe,poids,hauteur);
+            /* e.ajouter();
+               ui->tableView->setModel(e.afficher());*/
     if(!tmpenf.rechercher(id))
     {
    bool test= e.ajouter();
@@ -50,8 +125,12 @@ void Dialog_enfant::on_pushButton_clicked()
             QMessageBox::critical(nullptr, QObject::tr("enfant existant"),
                         QObject::tr("failed.\n"
                                     "Click Cancel to exit."), QMessageBox::Cancel);
+          }
+
 
 }
+
+
 void Dialog_enfant::on_pushButton_2_clicked()
 {
     int supp=ui->lineEdit_6->text().toInt();

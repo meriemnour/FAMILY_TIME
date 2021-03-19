@@ -25,9 +25,12 @@ private slots:
 
     void on_label_3_linkActivated(const QString &link);
 
+    void on_pushButton_4_clicked();
+
 private:
     Ui::Dialog_objet *ui;
     objet_enfant tmpo;
+      int id;
 };
 
 #endif // DIALOG_OBJET_H

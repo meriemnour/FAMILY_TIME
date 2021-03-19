@@ -13,6 +13,7 @@ public:
     bool ajouter();
     bool supprimer(int);
     QSqlQueryModel * afficher();
+    bool rechercher(int);
 private:
     int id;
     QString nomobjet;
