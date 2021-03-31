@@ -1,12 +1,19 @@
 #ifndef CONNECTION_H
 #define CONNECTION_H
 #include <QSqlDatabase>
+#include <QSql>
 #include <QSqlError>
 #include <QSqlQuery>
 
+namespace Ui{
+class Connection;
+}
+
+
+
 class Connection
 {
-public:
+ public:
     Connection();
     bool createconnect();
 };
